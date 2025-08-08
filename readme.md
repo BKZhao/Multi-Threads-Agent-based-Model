@@ -226,5 +226,7 @@ For questions or collaboration inquiries, please contact:
 - Zhongkui Ma: zhongkuima0419@gmail.com
 - Bingkun Zhao: zhaobingkun01@outlook.com  
 
-Developed by Bingkun Zhao (2025).
+
+**Latest Update**: Updated and enhanced by **Bingkun Zhao** in July 2025 (last modified: 08/08/2025).  
+
 Thanks to the Repast development team for simulation infrastructure.
