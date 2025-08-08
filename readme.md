@@ -227,6 +227,49 @@ Below is the dynamic trend of an infectious disease spread simulation run for 10
 | **Color Curves**  | - 🔴 Infected: Peaks at ~20,000, showing rapid transmission dynamics.<br>- 🟢 Susceptible: Dominates initially, declines sharply as infections/vaccination progress.<br>- 🔵 Recovered: Gradually accumulates post-infection, stabilizing at ~30,000+.<br>- 🟡 Vaccinated: Preemptively vaccinated (~45,000 total), effectively suppressing the infection peak. |
 
 
+## 🚀 Multi-Thread Performance Benchmark & Analysis
+To evaluate the parallel efficiency of the AgentManager, we conducted benchmark tests across different thread counts (2, 4, 6, 8, 10, 14) using a large-scale network dataset, with results averaged over 30  batch runs to ensure statistical robustness. Below are the key findings.
+
+### 📋 Test Environment
+- **Network Scale:** 75,888 unique nodes with 508,837 edges (loaded in 241ms).
+- **Simulation Setup:** 100 ticks, 2 behavior phases per tick, 75,888 agents.
+- **Hardware:** Intel Ultra 5 225H(14 cores, 14 threads).
+- **Metric:** Average total execution time per tick (ms) and speedup relative to 2 threads.
+
+### 📊 Aggregated Performance Results
+| Thread Count | Total Avg Time (ms) | Phase 0 Avg Time (ms) | Phase 1 Avg Time (ms) | Speedup vs. 2 Threads |
+|--------------|:-------------------:|:----------------------:|:----------------------:|:---------------------:|
+| 2            |        33.24        |         9.70          |         23.54         |         1.00×         |
+| 4            |        29.44        |         8.01          |         21.43         |         1.13×         |
+| 6            |        28.74        |         7.78          |         20.96         |         1.16×         |
+| 8            |        28.97        |         7.84          |         21.13         |         1.15×         |
+| 10           |        29.94        |         8.25          |         21.69         |         1.11×         |
+| 14           |        30.48        |         8.42          |         22.06         |         1.09×         |
+
+### 📊 Thread Performance Bar Chart  
+
+<img width="1934" height="1148" alt="image" src="https://github.com/user-attachments/assets/4fefbeed-f1da-4418-abeb-523a0fcb1864" />
+
+
+### 📈 Key Observations
+1. **Optimal Thread Range:**
+- Performance peaks at 6 threads with the lowest total time (28.74ms) and highest speedup (1.16× vs. 2 threads).
+- Thread counts beyond 6 (8–14) show marginal degradation, indicating diminishing returns from additional threads.
+
+2. **Phase-Specific Behavior:**
+- Phase 1 (computationally heavier, e.g., agent decision-making) dominates total runtime (60–70% of total time) and benefits more from parallelization: its time drops by ~11% from 2 to 6 threads.
+- Phase 0 (lighter sensing tasks) shows stable performance across thread counts, with only a ~20% reduction in time (from 9.70ms to 7.78ms).
+ 
+3. **Scalability Limits:**
+- The hardware’s 14-core limit constrains performance at higher thread counts (10–14). Beyond 6 threads, thread management overhead (e.g., task scheduling, synchronization) offsets parallelization gains.
+
+### 🎯Practical Recommendation
+- **For the tested network scale (75k nodes):** Use 6 threads to balance performance and resource usage. This configuration minimizes total runtime while avoiding excessive thread overhead.
+- **For larger simulations (e.g., 100k+ nodes or complex agent logic):** Test thread counts matching your CPU core count (e.g., 8 threads for 8-core CPUs). Larger tasks amortize thread management costs, potentially extending the optimal thread range.
+- **Phase optimization focus:** Prioritize parallelizing Phase 1 logic (e.g., splitting large decision-making tasks) to maximize speedup, as it contributes most to total runtime.
+
+
+
 
 
 ## 🔧Prerequisites
