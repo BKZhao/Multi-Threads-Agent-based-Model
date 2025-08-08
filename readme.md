@@ -247,9 +247,9 @@ To evaluate the parallel efficiency of the AgentManager, we conducted benchmark 
 | 14           |        30.48        |         8.42          |         22.06         |         1.09×         |
 
 ### 📊 Thread Performance Bar Chart  
-
-<img width="1934" height="1148" alt="image" src="https://github.com/user-attachments/assets/4fefbeed-f1da-4418-abeb-523a0fcb1864" />
-
+<div align="center">  
+  <img width="1200" height="800" alt="image" src="https://github.com/user-attachments/assets/4fefbeed-f1da-4418-abeb-523a0fcb1864" />
+</div>  
 
 ### 📈 Key Observations
 1. **Optimal Thread Range:**
