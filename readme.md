@@ -214,8 +214,9 @@ CustomizedNetworkGenerator<Agent> generator =
 Below is the dynamic trend of an infectious disease spread simulation run for 100 time steps using the this framework:
 ### 📈 Visualization
 
+
 <div align="center">  
-  <img width="850" height="650" alt="image" src="https://github.com/user-attachments/assets/f4710c3f-5ab4-41ae-b480-14dc4b247e3a"  width="700">  
+  <img width="1504" height="1150" alt="image" src="https://github.com/user-attachments/assets/c7b508dc-788f-4087-b15c-796a478ed645" />
 </div>  
 
 ### 📉 Chart Interpretation
