@@ -79,7 +79,7 @@ public class Agent {
                 break;
         }
 
-        toUpdateState = false;
+        toUpdateState = true;
     }
     
 	
