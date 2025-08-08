@@ -210,6 +210,24 @@ CustomizedNetworkGenerator<Agent> generator =
     new CustomizedNetworkGenerator<>(edgeMap, nodeCount, false);
  ```
 
+## 📊 Example of Large-Scale Simulation Results
+Below is the dynamic trend of an infectious disease spread simulation run for 100 time steps using the this framework:
+### 📈 Visualization
+
+<div align="center">  
+  <img width="850" height="650" alt="image" src="https://github.com/user-attachments/assets/f4710c3f-5ab4-41ae-b480-14dc4b247e3a"  width="700">  
+</div>  
+
+### 📉 Chart Interpretation
+| Element          | Description                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **X-Axis (Time)** | Simulation time steps (100 ticks total).           |
+| **Y-Axis (Agent Count)** | Size of each population group (total population: ~75,000).         |
+| **Color Curves**  | - 🔴 Infected: Peaks at ~20,000, showing rapid transmission dynamics.<br>- 🟢 Susceptible: Dominates initially, declines sharply as infections/vaccination progress.<br>- 🔵 Recovered: Gradually accumulates post-infection, stabilizing at ~30,000+.<br>- 🟡 Vaccinated: Preemptively vaccinated (~45,000 total), effectively suppressing the infection peak. |
+
+
+
+
 ## 🔧Prerequisites
 - Java JDK 11+ (with JAVA_HOME configured)
 - Repast Simphony 2.9+ (download from [Repast Official Site](https://repast.github.io/))
