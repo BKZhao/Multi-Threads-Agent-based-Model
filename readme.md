@@ -216,7 +216,7 @@ Below is the dynamic trend of an infectious disease spread simulation run for 10
 
 
 <div align="center">  
-  <img width="1504" height="1150" alt="image" src="https://github.com/user-attachments/assets/c7b508dc-788f-4087-b15c-796a478ed645" />
+  <img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/c7b508dc-788f-4087-b15c-796a478ed645" />
 </div>  
 
 ### 📉 Chart Interpretation
